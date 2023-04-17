@@ -1,8 +1,24 @@
+import { useState, useEffect } from 'react';
+
 function PokemonViewer({ id }) {
-  //TODO: Task 1 - send http request to `https://pokeapi.co/api/v2/pokemon/1' and display the data
-  // TODO: Task 2 - send http request to `https://pokeapi.co/api/v2/pokemon/${id}` and display the data!
-  // HINT: you will need useState and useEffect!
+  const [poke, setPoke] = useState('')
+
+
+  useEffect(() => {
+    async function getPokemon() {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+        headers: { accept: "application/json"}
+      });
+      const data = await response.json();
+      setPoke(data);
+    }
+    getPokemon();
+    console.log(poke.name);
+  }, [id])
+
   return <div className="pokemon-viewer"></div>;
 }
+
+
 
 export default PokemonViewer;
