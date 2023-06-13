@@ -1,0 +1,5 @@
+//PLAN
+//Click on a pokemon and it displays name and stats
+// Each pokemon sprite will have an onClick function 
+// Use of props in new component that will pass down data
+// Pass down the following data
